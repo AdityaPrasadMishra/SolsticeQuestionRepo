@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolsticeQuestion", "SolsticeQuestion\SolsticeQuestion.csproj", "{8E7EA2A2-D331-4308-B02E-80E7B9D00B78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolsticeQuestionTestProject", "SolsticeQuestionTestProject\SolsticeQuestionTestProject.csproj", "{D5CFC28A-B34B-4060-BD9C-516AB79115F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8E7EA2A2-D331-4308-B02E-80E7B9D00B78} = {8E7EA2A2-D331-4308-B02E-80E7B9D00B78}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E7EA2A2-D331-4308-B02E-80E7B9D00B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E7EA2A2-D331-4308-B02E-80E7B9D00B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E7EA2A2-D331-4308-B02E-80E7B9D00B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E7EA2A2-D331-4308-B02E-80E7B9D00B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5CFC28A-B34B-4060-BD9C-516AB79115F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5CFC28A-B34B-4060-BD9C-516AB79115F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5CFC28A-B34B-4060-BD9C-516AB79115F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5CFC28A-B34B-4060-BD9C-516AB79115F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {597F462C-7B4F-4DD4-9592-8DD11121C54A}
+	EndGlobalSection
+EndGlobal
