@@ -30,11 +30,11 @@ namespace SolsticeQuestion
             //string Connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ContactsDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             
             ////Azure has been configured with the following COnnection
-            string Connection = @"Data Source=tcp:solsticequestion20190609121233dbserver.database.windows.net,1433;Initial Catalog=SolsticeQuestion20190609121233_db;User Id=sqladmin@solsticequestion20190609121233dbserver;Password=Adi47123";
-            services.AddDbContext<ContactsDBContext>(opt =>opt.UseSqlServer(Connection));
+            //string Connection = @"Data Source=tcp:solsticequestion20190609121233dbserver.database.windows.net,1433;Initial Catalog=SolsticeQuestion20190609121233_db;User Id=sqladmin@solsticequestion20190609121233dbserver;Password=Adi47123";
+            //services.AddDbContext<ContactsDBContext>(opt =>opt.UseSqlServer(Connection));
             
             //// To Test Locally
-            //services.AddDbContext<ContactsDBContext>(opt =>opt.UseInMemoryDatabase("ContactsDB"));
+            services.AddDbContext<ContactsDBContext>(opt =>opt.UseInMemoryDatabase("ContactsDB"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
