@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 
 namespace SolsticeQuestion.Models
 {
+    //Did not use this as I found a more simpler solution.  
     public class JSONWithFilesMultiPartModelBinder : IModelBinder
     {
         private readonly IOptions<MvcJsonOptions> _jsonOptions;

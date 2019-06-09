@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SolsticeQuestion.Controllers
 {
+    //This controleer is only there ths test the connection with server.
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase

@@ -14,6 +14,7 @@ using System.IO;
 
 namespace SolsticeQuestion.Controllers
 {
+    //Main Controller of the API
     [Route("api/[controller]")]
     [ApiController]
     public class ContactsController : Controller
@@ -24,15 +25,9 @@ namespace SolsticeQuestion.Controllers
         {
             _context = context;
 
-            if (_context.ContactItems.Count() == 0)
-            {
-                // Create a new ContactsItem if collection is empty,
-                // which means you can't delete all ContactItems.
-                _context.ContactItems.Add(new ContactItem { Name = "Item1" });
-                _context.SaveChanges();
-            }
         }
 
+        //Get the Contacts
         // GET: api/Contacts
         //[Route("api/Contacts/GetContactItems")]
         [HttpGet]
@@ -41,6 +36,7 @@ namespace SolsticeQuestion.Controllers
             return await _context.ContactItems.ToListAsync();
         }
 
+        //Gets the Contacts per id
         // GET: api/Contacts/5
         [HttpGet("{id:long}")]
         public async Task<ActionResult<ContactItem>> GetContactItem(long id)
@@ -55,14 +51,12 @@ namespace SolsticeQuestion.Controllers
             return contactItem;
         }
 
-
+        // Get the Contacts per email and phone
         // GET: api/Contacts/byemailorphone?email=a&phone=b
         [Route("~/api/Contacts/byemailorphone")]
         [HttpGet("{byemailorphone}")]
         public async Task<ActionResult<IEnumerable<ContactItem>>> SearchContactItems(string email, string phone)
         {
-            //string email = !String.IsNullOrEmpty(item1) ? item1 : "";
-            //string phonenumber = !String.IsNullOrEmpty(item2) ? item2 : "";
 
             var contactItems = await _context.ContactItems.Where(con => con.Email == email
             || con.HomePhoneNumber == phone || con.WorkPhoneNumber == phone).ToListAsync();
@@ -71,6 +65,7 @@ namespace SolsticeQuestion.Controllers
         }
 
 
+        // Retrieves information by state
         // GET: api/Contacts/bystate?state=a
         [Route("~/api/Contacts/bystate")]
         [HttpGet("{bystate}")]
@@ -84,6 +79,7 @@ namespace SolsticeQuestion.Controllers
             return contactItems;
         }
 
+        // Retrieves information by City
         // GET: api/Contacts/bycity?city=b
         [Route("~/api/Contacts/bycity")]
         [HttpGet("{bycity}")]
@@ -98,6 +94,7 @@ namespace SolsticeQuestion.Controllers
         }
 
 
+        // Creates a New Contact Record
         [HttpPost]
         public async Task<ActionResult<ContactItem>> PostContactItem([FromForm]ContactItem item,IFormFile profileImage)
         {
@@ -112,6 +109,7 @@ namespace SolsticeQuestion.Controllers
             return CreatedAtAction(nameof(GetContactItem), new { id = item.Id }, item);
         }
 
+        // Updates an exisisting contact record
         // PUT: api/Contacts/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutContactItem( [FromForm]ContactItem item, long id, IFormFile profileImage)
@@ -132,6 +130,7 @@ namespace SolsticeQuestion.Controllers
             return NoContent();
         }
 
+        // Deletes a Contact Record
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContactItem(long id)
         {
@@ -156,6 +155,8 @@ namespace SolsticeQuestion.Controllers
             }
             return NoContent();
         }
+
+        //Copies the profile image to specifies directory
 
         private string handleFile(IFormFile profileImage)
         {
